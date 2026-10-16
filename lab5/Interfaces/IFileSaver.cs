@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace lab5.Interfaces
 {
-    internal interface IFileSaver
+    interface IFileSaver
     {
+        Task SaveAsync<T>(string filePath, List<T> data);
     }
 }

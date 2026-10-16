@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37614.0 d17.14
+VisualStudioVersion = 17.14.37614.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab5", "lab5\lab5.csproj", "{B2FF1E28-44A4-452B-A7EA-2671D5658E98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductTest", "ProductTest\ProductTest.csproj", "{FF4EBAA9-E8B4-4E0D-871C-3A23D4E38515}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductAmountComparerTest", "ProductAmout=ntComparerTest\ProductAmountComparerTest.csproj", "{CFC607DD-7F18-4162-9492-41B290619830}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{B2FF1E28-44A4-452B-A7EA-2671D5658E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2FF1E28-44A4-452B-A7EA-2671D5658E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2FF1E28-44A4-452B-A7EA-2671D5658E98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF4EBAA9-E8B4-4E0D-871C-3A23D4E38515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF4EBAA9-E8B4-4E0D-871C-3A23D4E38515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF4EBAA9-E8B4-4E0D-871C-3A23D4E38515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF4EBAA9-E8B4-4E0D-871C-3A23D4E38515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFC607DD-7F18-4162-9492-41B290619830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC607DD-7F18-4162-9492-41B290619830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC607DD-7F18-4162-9492-41B290619830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC607DD-7F18-4162-9492-41B290619830}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
