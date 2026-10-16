@@ -56,7 +56,7 @@ namespace lab5.Classes
             Type = type;
             Price = price;
             Grade = grade;
-            Amount   = amount;
+            Amount = amount;
         }
 
         public int CompareTo(Product other)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab5.Interfaces
 {
-    interface IFileLoader
+    public interface IFileLoader
     {
         Task<List<T>> LoadAsync<T>(string filePath);
     }
