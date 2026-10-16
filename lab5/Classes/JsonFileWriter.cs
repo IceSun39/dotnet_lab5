@@ -18,7 +18,7 @@ namespace lab5.Classes
             }
 
             var json = System.Text.Json.JsonSerializer.Serialize(data, new System.Text.Json.JsonSerializerOptions{ WriteIndented = true });
-            await File.WriteAllLinesAsync(filePath, json);
+            await File.WriteAllTextAsync(filePath, json);
         }
     }
 }
