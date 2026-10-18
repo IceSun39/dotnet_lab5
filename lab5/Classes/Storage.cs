@@ -36,8 +36,13 @@ namespace lab5.Classes
         }
         public void SortByAmount()
         {
-            var sortedProducts = new List<Product>(_allProducts);
-            sortedProducts.Sort(new ProductAmountComparer());
+            var sortedProducts = Products.OrderBy(p => p.Amount).ToList();
+            UpdateVisibleCollection(sortedProducts);
+        }
+
+        public void SortByPrice()
+        {
+            var sortedProducts = Products.OrderBy(p => p.Price).ToList();
             UpdateVisibleCollection(sortedProducts);
         }
 

@@ -15,14 +15,10 @@ namespace lab5
             string filePath = Path.Combine(AppContext.BaseDirectory, "products.json");
             _storage = new Storage(new JsonFileWriter(), new JsonFileReader(), filePath);
 
-            // Головна таблиця прив'язана до колекції зі Storage
             _productsSource.DataSource = _storage.Products;
             dgvProducts.DataSource = _productsSource;
-
-            // ObservableCollection не оновлює DataGridView сама, тому оновлюємо вручну
             _storage.Products.CollectionChanged += (s, e) => _productsSource.ResetBindings(false);
 
-            // Таблиця результату (новий список)
             _resultSource.DataSource = new List<Product>();
             dgvResult.DataSource = _resultSource;
         }
@@ -79,9 +75,6 @@ namespace lab5
         {
             _storage.SortByAmount();
         }
-
-        // Завдання: вивести в новий список продукцію, кількість якої менша за задану,
-        // відсортувавши її за кількістю
         private void btnFilter_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtLimit.Text, out int limit))
@@ -130,6 +123,11 @@ namespace lab5
         private static void ShowError(string message)
         {
             MessageBox.Show(message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void sortByPrice_Click(object sender, EventArgs e)
+        {
+            _storage.SortByPrice();
         }
     }
 }

@@ -31,10 +31,6 @@ namespace lab5
             txtAmount = new TextBox();
             btnAdd = new Button();
             dgvProducts = new DataGridView();
-            colType = new DataGridViewTextBoxColumn();
-            colPrice = new DataGridViewTextBoxColumn();
-            colGrade = new DataGridViewTextBoxColumn();
-            colAmount = new DataGridViewTextBoxColumn();
             lblLimit = new Label();
             txtLimit = new TextBox();
             btnFilter = new Button();
@@ -44,85 +40,106 @@ namespace lab5
             btnSave = new Button();
             lblResult = new Label();
             dgvResult = new DataGridView();
-            colResType = new DataGridViewTextBoxColumn();
-            colResPrice = new DataGridViewTextBoxColumn();
-            colResGrade = new DataGridViewTextBoxColumn();
-            colResAmount = new DataGridViewTextBoxColumn();
+            sortByPrice = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvResult).BeginInit();
             SuspendLayout();
-
+            // 
             // lblTitle
+            // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblTitle.Location = new Point(12, 12);
             lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(167, 15);
+            lblTitle.TabIndex = 19;
             lblTitle.Text = "Додати/редагувати продукт";
-
+            // 
             // lblType
+            // 
             lblType.AutoSize = true;
             lblType.Location = new Point(12, 48);
             lblType.Name = "lblType";
+            lblType.Size = new Size(31, 15);
+            lblType.TabIndex = 18;
             lblType.Text = "Тип:";
-
+            // 
             // txtType
+            // 
             txtType.Location = new Point(90, 45);
             txtType.Name = "txtType";
             txtType.Size = new Size(280, 23);
-
+            txtType.TabIndex = 17;
+            // 
             // lblPrice
+            // 
             lblPrice.AutoSize = true;
             lblPrice.Location = new Point(400, 48);
             lblPrice.Name = "lblPrice";
+            lblPrice.Size = new Size(35, 15);
+            lblPrice.TabIndex = 16;
             lblPrice.Text = "Ціна:";
-
+            // 
             // txtPrice
+            // 
             txtPrice.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtPrice.Location = new Point(480, 45);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(328, 23);
-
+            txtPrice.TabIndex = 15;
+            // 
             // lblGrade
+            // 
             lblGrade.AutoSize = true;
             lblGrade.Location = new Point(12, 83);
             lblGrade.Name = "lblGrade";
+            lblGrade.Size = new Size(37, 15);
+            lblGrade.TabIndex = 14;
             lblGrade.Text = "Сорт:";
-
+            // 
             // txtGrade
+            // 
             txtGrade.Location = new Point(90, 80);
             txtGrade.Name = "txtGrade";
             txtGrade.Size = new Size(280, 23);
-
+            txtGrade.TabIndex = 13;
+            // 
             // lblAmount
+            // 
             lblAmount.AutoSize = true;
             lblAmount.Location = new Point(400, 83);
             lblAmount.Name = "lblAmount";
+            lblAmount.Size = new Size(59, 15);
+            lblAmount.TabIndex = 12;
             lblAmount.Text = "Кількість:";
-
+            // 
             // txtAmount
+            // 
             txtAmount.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtAmount.Location = new Point(480, 80);
             txtAmount.Name = "txtAmount";
             txtAmount.Size = new Size(328, 23);
-
+            txtAmount.TabIndex = 11;
+            // 
             // btnAdd
+            // 
             btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnAdd.Location = new Point(12, 115);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(796, 28);
+            btnAdd.TabIndex = 10;
             btnAdd.Text = "Додати продукт";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
-
+            // 
             // dgvProducts
+            // 
             dgvProducts.AllowUserToAddRows = false;
             dgvProducts.AllowUserToDeleteRows = false;
             dgvProducts.AllowUserToResizeRows = false;
             dgvProducts.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            dgvProducts.AutoGenerateColumns = false;
             dgvProducts.BackgroundColor = Color.White;
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProducts.Columns.AddRange(new DataGridViewColumn[] { colType, colPrice, colGrade, colAmount });
             dgvProducts.Location = new Point(12, 158);
             dgvProducts.MultiSelect = false;
             dgvProducts.Name = "dgvProducts";
@@ -130,106 +147,92 @@ namespace lab5
             dgvProducts.RowHeadersVisible = false;
             dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProducts.Size = new Size(796, 230);
-
-            // colType
-            colType.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colType.DataPropertyName = "Type";
-            colType.FillWeight = 40F;
-            colType.HeaderText = "Тип";
-            colType.Name = "colType";
-            colType.ReadOnly = true;
-
-            // colPrice
-            colPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colPrice.DataPropertyName = "Price";
-            colPrice.FillWeight = 20F;
-            colPrice.HeaderText = "Ціна";
-            colPrice.Name = "colPrice";
-            colPrice.ReadOnly = true;
-
-            // colGrade
-            colGrade.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colGrade.DataPropertyName = "Grade";
-            colGrade.FillWeight = 20F;
-            colGrade.HeaderText = "Сорт";
-            colGrade.Name = "colGrade";
-            colGrade.ReadOnly = true;
-
-            // colAmount
-            colAmount.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colAmount.DataPropertyName = "Amount";
-            colAmount.FillWeight = 20F;
-            colAmount.HeaderText = "Кількість";
-            colAmount.Name = "colAmount";
-            colAmount.ReadOnly = true;
-
+            dgvProducts.TabIndex = 9;
+            // 
             // lblLimit
+            // 
             lblLimit.AutoSize = true;
             lblLimit.Location = new Point(12, 400);
             lblLimit.Name = "lblLimit";
+            lblLimit.Size = new Size(115, 15);
+            lblLimit.TabIndex = 8;
             lblLimit.Text = "Кількість менша за:";
-
+            // 
             // txtLimit
+            // 
             txtLimit.Location = new Point(135, 396);
             txtLimit.Name = "txtLimit";
             txtLimit.Size = new Size(60, 23);
-
+            txtLimit.TabIndex = 7;
+            // 
             // btnFilter
+            // 
             btnFilter.Location = new Point(205, 394);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(90, 27);
+            btnFilter.TabIndex = 6;
             btnFilter.Text = "Фільтр";
             btnFilter.UseVisualStyleBackColor = true;
             btnFilter.Click += btnFilter_Click;
-
+            // 
             // btnDelete
+            // 
             btnDelete.Location = new Point(305, 394);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(90, 27);
+            btnDelete.TabIndex = 5;
             btnDelete.Text = "Видалити";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
-
+            // 
             // btnSort
+            // 
             btnSort.Location = new Point(405, 394);
             btnSort.Name = "btnSort";
             btnSort.Size = new Size(160, 27);
+            btnSort.TabIndex = 4;
             btnSort.Text = "Сортувати за кількістю";
             btnSort.UseVisualStyleBackColor = true;
             btnSort.Click += btnSort_Click;
-
+            // 
             // btnLoad
+            // 
             btnLoad.Location = new Point(575, 394);
             btnLoad.Name = "btnLoad";
             btnLoad.Size = new Size(120, 27);
+            btnLoad.TabIndex = 3;
             btnLoad.Text = "Завантажити";
             btnLoad.UseVisualStyleBackColor = true;
             btnLoad.Click += btnLoad_Click;
-
+            // 
             // btnSave
+            // 
             btnSave.Location = new Point(705, 394);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(103, 27);
+            btnSave.TabIndex = 2;
             btnSave.Text = "Зберегти";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
-
+            // 
             // lblResult
+            // 
             lblResult.AutoSize = true;
             lblResult.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblResult.Location = new Point(12, 435);
             lblResult.Name = "lblResult";
+            lblResult.Size = new Size(366, 15);
+            lblResult.TabIndex = 1;
             lblResult.Text = "Результат: кількість менша за задану (за зростанням кількості)";
-
+            // 
             // dgvResult
+            // 
             dgvResult.AllowUserToAddRows = false;
             dgvResult.AllowUserToDeleteRows = false;
             dgvResult.AllowUserToResizeRows = false;
             dgvResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvResult.AutoGenerateColumns = false;
             dgvResult.BackgroundColor = Color.White;
             dgvResult.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvResult.Columns.AddRange(new DataGridViewColumn[] { colResType, colResPrice, colResGrade, colResAmount });
             dgvResult.Location = new Point(12, 458);
             dgvResult.MultiSelect = false;
             dgvResult.Name = "dgvResult";
@@ -237,43 +240,24 @@ namespace lab5
             dgvResult.RowHeadersVisible = false;
             dgvResult.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvResult.Size = new Size(796, 200);
-
-            // colResType
-            colResType.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colResType.DataPropertyName = "Type";
-            colResType.FillWeight = 40F;
-            colResType.HeaderText = "Тип";
-            colResType.Name = "colResType";
-            colResType.ReadOnly = true;
-
-            // colResPrice
-            colResPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colResPrice.DataPropertyName = "Price";
-            colResPrice.FillWeight = 20F;
-            colResPrice.HeaderText = "Ціна";
-            colResPrice.Name = "colResPrice";
-            colResPrice.ReadOnly = true;
-
-            // colResGrade
-            colResGrade.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colResGrade.DataPropertyName = "Grade";
-            colResGrade.FillWeight = 20F;
-            colResGrade.HeaderText = "Сорт";
-            colResGrade.Name = "colResGrade";
-            colResGrade.ReadOnly = true;
-
-            // colResAmount
-            colResAmount.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colResAmount.DataPropertyName = "Amount";
-            colResAmount.FillWeight = 20F;
-            colResAmount.HeaderText = "Кількість";
-            colResAmount.Name = "colResAmount";
-            colResAmount.ReadOnly = true;
-
+            dgvResult.TabIndex = 0;
+            // 
+            // sortByPrice
+            // 
+            sortByPrice.Location = new Point(405, 431);
+            sortByPrice.Name = "sortByPrice";
+            sortByPrice.Size = new Size(160, 23);
+            sortByPrice.TabIndex = 20;
+            sortByPrice.Text = "Сортувати за ціною";
+            sortByPrice.UseVisualStyleBackColor = true;
+            sortByPrice.Click += sortByPrice_Click;
+            // 
             // Form1
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(820, 672);
+            Controls.Add(sortByPrice);
             Controls.Add(dgvResult);
             Controls.Add(lblResult);
             Controls.Add(btnSave);
@@ -334,5 +318,6 @@ namespace lab5
         private DataGridViewTextBoxColumn colResPrice;
         private DataGridViewTextBoxColumn colResGrade;
         private DataGridViewTextBoxColumn colResAmount;
+        private Button sortByPrice;
     }
 }
