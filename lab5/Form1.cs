@@ -15,10 +15,14 @@ namespace lab5
             string filePath = Path.Combine(AppContext.BaseDirectory, "products.json");
             _storage = new Storage(new JsonFileWriter(), new JsonFileReader(), filePath);
 
+            // Головна таблиця прив'язана до колекції зі Storage
             _productsSource.DataSource = _storage.Products;
             dgvProducts.DataSource = _productsSource;
+
+            // ObservableCollection не оновлює DataGridView сама, тому оновлюємо вручну
             _storage.Products.CollectionChanged += (s, e) => _productsSource.ResetBindings(false);
 
+            // Таблиця результату (новий список)
             _resultSource.DataSource = new List<Product>();
             dgvResult.DataSource = _resultSource;
         }
@@ -27,17 +31,17 @@ namespace lab5
         {
             if (string.IsNullOrWhiteSpace(txtType.Text) || string.IsNullOrWhiteSpace(txtGrade.Text))
             {
-                ShowError("��������� ���� \"���\" �� \"����\".");
+                ShowError("Заповніть поля \"Тип\" та \"Сорт\".");
                 return;
             }
             if (!double.TryParse(txtPrice.Text, out double price))
             {
-                ShowError("ֳ�� �� ���� ������.");
+                ShowError("Ціна має бути числом.");
                 return;
             }
             if (!int.TryParse(txtAmount.Text, out int amount))
             {
-                ShowError("ʳ������ �� ���� ����� ������.");
+                ShowError("Кількість має бути цілим числом.");
                 return;
             }
 
@@ -67,7 +71,7 @@ namespace lab5
             }
             else
             {
-                ShowError("������� ������� � �������.");
+                ShowError("Виберіть продукт у таблиці.");
             }
         }
 
@@ -75,11 +79,20 @@ namespace lab5
         {
             _storage.SortByAmount();
         }
+
+        private void btnAnalytics_Click(object sender, EventArgs e)
+        {
+            using var form = new AnalyticsForm(_storage);
+            form.ShowDialog(this);
+        }
+
+        // Завдання: вивести в новий список продукцію, кількість якої менша за задану,
+        // відсортувавши її за кількістю
         private void btnFilter_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtLimit.Text, out int limit))
             {
-                ShowError("������ ���� ����� � ���� \"ʳ������ ����� ��\".");
+                ShowError("Введіть ціле число в поле \"Кількість менша за\".");
                 return;
             }
 
@@ -95,7 +108,7 @@ namespace lab5
             }
             catch (Exception ex)
             {
-                ShowError("�� ������� ����������� ����: " + ex.Message);
+                ShowError("Не вдалося завантажити файл: " + ex.Message);
             }
         }
 
@@ -104,11 +117,11 @@ namespace lab5
             try
             {
                 await _storage.SaveAsync();
-                MessageBox.Show("���� ���������.", "������", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Дані збережено.", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                ShowError("�� ������� �������� ����: " + ex.Message);
+                ShowError("Не вдалося зберегти файл: " + ex.Message);
             }
         }
 
@@ -122,12 +135,7 @@ namespace lab5
 
         private static void ShowError(string message)
         {
-            MessageBox.Show(message, "�������", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void sortByPrice_Click(object sender, EventArgs e)
-        {
-            _storage.SortByPrice();
+            MessageBox.Show(message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

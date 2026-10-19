@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductAmountComparerTest",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonTest", "JsonTest\JsonTest.csproj", "{F6D21CD2-DE58-428B-82F8-62A633767753}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageTest", "StorageTest\StorageTest.csproj", "{3D018493-5FE3-49C3-88AD-1F25E28057D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F6D21CD2-DE58-428B-82F8-62A633767753}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6D21CD2-DE58-428B-82F8-62A633767753}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6D21CD2-DE58-428B-82F8-62A633767753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D018493-5FE3-49C3-88AD-1F25E28057D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D018493-5FE3-49C3-88AD-1F25E28057D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D018493-5FE3-49C3-88AD-1F25E28057D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D018493-5FE3-49C3-88AD-1F25E28057D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

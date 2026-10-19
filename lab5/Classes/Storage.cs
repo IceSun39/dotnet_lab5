@@ -30,19 +30,17 @@ namespace lab5.Classes
             Products.Add(product);
             _allProducts.Add(product);
         }
-        public void RemoveProduct(Product product) {
+
+        public void RemoveProduct(Product product)
+        {
             Products.Remove(product);
             _allProducts.Remove(product);
         }
+
         public void SortByAmount()
         {
-            var sortedProducts = Products.OrderBy(p => p.Amount).ToList();
-            UpdateVisibleCollection(sortedProducts);
-        }
-
-        public void SortByPrice()
-        {
-            var sortedProducts = Products.OrderBy(p => p.Price).ToList();
+            var sortedProducts = new List<Product>(_allProducts);
+            sortedProducts.Sort(new ProductAmountComparer());
             UpdateVisibleCollection(sortedProducts);
         }
 
@@ -51,10 +49,63 @@ namespace lab5.Classes
             var filteredProducts = _allProducts.Where(p => p.Type.Equals(type, StringComparison.OrdinalIgnoreCase)).ToList();
             UpdateVisibleCollection(filteredProducts);
         }
+
         public void ResetFilter()
         {
             UpdateVisibleCollection(_allProducts);
         }
+
+        
+        public List<Product> GetProductsWithAmountLessThan(int limit)
+        {
+            var result = _allProducts.Where(p => p.Amount < limit).ToList();
+            result.Sort(new ProductAmountComparer());
+            return result;
+        }
+
+     
+        public List<ProductValue> GetProductValues()
+        {
+            return _allProducts
+                .Select(p => new ProductValue(p.Type, p.Grade, p.Price * p.Amount))
+                .ToList();
+        }
+
+      
+        public List<TypeStatistic> GetTypeStatistics()
+        {
+            return _allProducts
+                .GroupBy(p => p.Type, StringComparer.OrdinalIgnoreCase)
+                .Select(g => new TypeStatistic(
+                    g.Key,
+                    g.Count(),
+                    g.Sum(p => p.Amount),
+                    g.Average(p => p.Price)))
+                .OrderBy(s => s.Type)
+                .ToList();
+        }
+
+     
+        public Dictionary<string, int> CountByGrade()
+        {
+            return _allProducts
+                .GroupBy(p => p.Grade, StringComparer.OrdinalIgnoreCase)
+                .ToDictionary(g => g.Key, g => g.Count(), StringComparer.OrdinalIgnoreCase);
+        }
+
+       
+        public double GetTotalValue()
+        {
+            return _allProducts.Sum(p => p.Price * p.Amount);
+        }
+
+      
+        public double GetAveragePrice()
+        {
+            return _allProducts.Count == 0 ? 0 : _allProducts.Average(p => p.Price);
+        }
+
+   
 
         private void UpdateVisibleCollection(List<Product> filteredProducts)
         {
@@ -78,13 +129,6 @@ namespace lab5.Classes
                 _allProducts = loadedProducts;
                 UpdateVisibleCollection(_allProducts);
             }
-        }
-
-        public List<Product> GetProductsWithAmountLessThan(int limit)
-        {
-            var result = _allProducts.Where(p => p.Amount < limit).ToList();
-            result.Sort(new ProductAmountComparer());
-            return result;
         }
     }
 }
